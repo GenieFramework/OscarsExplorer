@@ -1,0 +1,20 @@
+name = "OscarStats"
+uuid = "ffbff5a3-d485-47c2-829a-07ee6141382a"
+authors = ["Adrian Salceanu <adrian.salceanu@gmail.com>"]
+version = "0.1.0"
+
+[deps]
+DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
+Dates = "ade2ca70-3891-5945-98fb-dc099432e06a"
+Genie = "c43c736e-a2d1-11e8-161f-af95117fbd1e"
+GenieAutoReload = "c6228e60-a24f-11e9-1776-c313472ebacc"
+GenieDevTools = "4e5d9629-6565-4102-a9ff-45c707eb060e"
+GenieSession = "03cc5b98-4f21-4eb6-99f2-22eced81f962"
+GenieSessionFileSession = "5c4fdc26-39e3-47cf-9034-e533e09961c2"
+Inflector = "6d011eab-0732-4556-8808-e463c76bf3b6"
+Logging = "56ddb016-857b-54e1-b83d-db4d58db5568"
+Revise = "295af30f-e4ad-537b-8983-00126c2a3abe"
+SQLite = "0aa819cd-b072-5ff4-a722-6bc24af294d9"
+Stipple = "4acbeb90-81a0-11ea-1966-bdaff8155998"
+StipplePlotly = "ec984513-233d-481d-95b0-a3b58b97af2b"
+StippleUI = "a3c5d34a-b254-4859-a8fa-b86abb7e84a3"

@@ -1,0 +1,96 @@
+<header class="st-header q-pa-sm">
+    <h1 class="st-header__title text-h3">Oscars Explorer<br /></h1>
+</header>
+<div class="row" v-if="isready">
+    <div class="col-3 g-gutter-md">
+        <div class="row">
+            <h2>Filters</h2>
+        </div>
+        <div class="row">
+            <div class="col col-12">
+                <h6>Min number of Oscars</h6>
+                <q-slider :min="$(Oscars.oscars_range.start)" :max="$(Oscars.oscars_range.stop)" v-model="filter_oscars" marker-labels="marker-labels" markers="markers" label="label" label-always="label-always">
+                </q-slider>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-12">
+                <h6>Year released</h6>
+                <q-range :min="$(Oscars.years_range.start + 30)" :max="$(Oscars.years_range.stop - 30)" :value="filter_years" marker-labels="" markers="" label="" label-always="" style="width: 40%;"></q-range>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-12">
+                <q-select :options="countries" label="Country" v-model="filter_country" :loading="isprocessing" :readonly="isprocessing" value="$(Oscars.ALL)"></q-select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-12">
+                <q-select :options="genres" label="Genre" v-model="filter_genre" :loading="isprocessing" :readonly="isprocessing" value="$(Oscars.ALL)"></q-select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-12">
+                <q-select :options="directors" label="Director" v-model="filter_director" :loading="isprocessing" :readonly="isprocessing" value="$(Oscars.ALL)"></q-select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-12">
+                <q-select :options="cast" label="Cast" v-model="filter_cast" :loading="isprocessing" :readonly="isprocessing" value="$(Oscars.ALL)"></q-select>
+            </div>
+        </div>
+    </div>
+    <div class="col-9 col">
+        <div class="row">
+            <div class="col col-9 st-module">
+                <plotly class="movies_plot sync_data" :data="data" :layout="layout" :config="{  }"></plotly>
+                <q-table flat="" :columns="movies.columns_movies" v-model="movies" :data="movies.data_movies" dense="" row-key="__id" :pagination="movies_pagination" class="movies_table"></q-table>
+            </div>
+            <div class="col col-3 padded">
+                <div class="row">
+                    <h2>Movie details</h2>
+                    <div class="col col-12">
+                        <h6>Title</h6>
+                        <p>{{selected_movie.Title}}</p>
+                    </div>
+                    <div class="col col-12">
+                        <h6>Year</h6>
+                        <p>{{selected_movie.Year}}</p>
+                    </div>
+                    <div class="col col-12">
+                        <h6>Genre</h6>
+                        <p>{{selected_movie.Genre}}</p>
+                    </div>
+                    <div class="col col-12">
+                        <h6>Director</h6>
+                        <p>{{selected_movie.Director}}</p>
+                    </div>
+                    <div class="col col-12">
+                        <h6>Cast</h6>
+                        <p>{{selected_movie.Cast}}</p>
+                    </div>
+                    <div class="col col-12">
+                        <h6>Imdb Rating</h6>
+                        <p>{{selected_movie.imdbRating}}</p>
+                    </div>
+                    <div class="col col-12">
+                        <h6>Language</h6>
+                        <p>{{selected_movie.Language}}</p>
+                    </div>
+                    <div class="col col-12">
+                        <h6>Country</h6>
+                        <p>{{selected_movie.Country}}</p>
+                    </div>
+                    <div class="col col-12">
+                        <h6>Awards</h6>
+                        <p>{{selected_movie.Awards}}</p>
+                    </div>
+                    <div class="col col-12">
+                        <h6>No. of Oscars</h6>
+                        <p>{{selected_movie.Oscars}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
