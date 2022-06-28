@@ -78,10 +78,10 @@ export Oscar
 @reactive mutable struct Oscar <: ReactiveModel
   filter_oscars::R{Int} = oscars_range.start
   filter_years::R{RangeData} = RangeData(years_range)
-  filter_country::R{String} = ""
-  filter_genre::R{String} = ""
-  filter_director::R{String} = ""
-  filter_cast::R{String} = ""
+  filter_country::R{String} = ALL
+  filter_genre::R{String} = ALL
+  filter_director::R{String} = ALL
+  filter_cast::R{String} = ALL
   countries::Vector{<:String} = movie_data("Country")
   genres::Vector{<:String} = movie_data("Genre")
   directors::Vector{<:String} = movie_data("Director")
