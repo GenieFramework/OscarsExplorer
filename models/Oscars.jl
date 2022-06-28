@@ -43,7 +43,7 @@ function oscars(filters::Vector{<:String} = String[])
     query *= " and $f"
   end
 
-  @debug query
+  # @debug query
 
   DBInterface.execute(db, query) |> DataFrame
 end
