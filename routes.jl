@@ -1,4 +1,4 @@
-using Revise
+# using Revise
 using Stipple
 using StippleUI
 using StipplePlotly
@@ -6,8 +6,7 @@ using StipplePlotly
 using Stipple.Pages
 using Stipple.ModelStorage.Sessions
 
-includet(@__MODULE__, "models/Oscars.jl")
-using .Oscars
+using OscarStats.Oscars
 
 Page("/", view = "views/hello.jl.html",
           layout = "layouts/app.jl.html",

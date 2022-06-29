@@ -16,7 +16,7 @@
         <div class="row">
             <div class="col col-12">
                 <h6>Year released</h6>
-                <q-range :min="$(Oscars.years_range.start + 30)" :max="$(Oscars.years_range.stop - 30)" :value="filter_years" marker-labels="" markers="" label="" label-always="" style="width: 40%;"></q-range>
+                <q-range :min="$(Oscars.years_range.start)" :max="$(Oscars.years_range.stop)" :step="5" v-model="filter_years" marker-labels="" markers="" label="" label-always=""></q-range>
             </div>
         </div>
         <div class="row">

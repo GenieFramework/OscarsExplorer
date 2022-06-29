@@ -154,7 +154,7 @@ version = "6.2.1+2"
 
 [[deps.Genie]]
 deps = ["ArgParse", "Dates", "Distributed", "EzXML", "FilePathsBase", "HTTP", "HttpCommon", "Inflector", "JSON3", "JuliaFormatter", "Logging", "LoggingExtras", "Markdown", "Millboard", "Nettle", "OrderedCollections", "Pkg", "REPL", "Random", "Reexport", "Revise", "SHA", "Serialization", "Sockets", "UUIDs", "Unicode", "YAML"]
-git-tree-sha1 = "15651d851033b525ec537bc14cc8d51c11526a6b"
+git-tree-sha1 = "a9d33069c284c4b6d4ce750cf81fba660fd75c1b"
 repo-rev = "v5"
 repo-url = "https://github.com/GenieFramework/Genie.jl.git"
 uuid = "c43c736e-a2d1-11e8-161f-af95117fbd1e"
@@ -539,7 +539,7 @@ version = "0.12.2"
 
 [[deps.StippleUI]]
 deps = ["Colors", "DataFrames", "Dates", "Genie", "GenieSession", "GenieSessionFileSession", "Stipple"]
-git-tree-sha1 = "f437fb25fd40aff3cabed79f60eec31b3cfd1a87"
+git-tree-sha1 = "a1faaed69e52aa81319df348f351207f45b143b3"
 repo-rev = "Geniev5"
 repo-url = "https://github.com/GenieFramework/StippleUI.jl.git"
 uuid = "a3c5d34a-b254-4859-a8fa-b86abb7e84a3"

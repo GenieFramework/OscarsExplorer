@@ -18,7 +18,7 @@ end
 # construct a range between the minimum and maximim years of the movies
 const years_range = begin
   result = DBInterface.execute(db, "select min(Year) as min_year, max(Year) as max_year from movies") |> DataFrame
-  StepRange(result[!,:min_year][1], 5, result[!,:max_year][1])
+  UnitRange(result[!,:min_year][1], result[!,:max_year][1])
 end
 
 const table_options = DataTableOptions(columns = Column(["Title", "Year", "Oscars", "Country", "Genre", "Director", "Cast"]))
@@ -77,7 +77,7 @@ export Oscar
 
 @reactive mutable struct Oscar <: ReactiveModel
   filter_oscars::R{Int} = oscars_range.start
-  filter_years::R{RangeData} = RangeData(years_range)
+  filter_years::R{RangeData{Int}} = RangeData(years_range.start:years_range.stop)
   filter_country::R{String} = ALL
   filter_genre::R{String} = ALL
   filter_director::R{String} = ALL
