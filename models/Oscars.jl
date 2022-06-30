@@ -97,8 +97,6 @@ export Oscar
   @mixin data::PlotlyEvents
 end
 
-Stipple.js_mounted(::Oscar) = watchplots("#OscarStatsOscarsOscar", subtree = true)
-
 function handlers(model::Oscar)
   global hh
   @info "reloading handlers ..."
@@ -123,6 +121,14 @@ function handlers(model::Oscar)
       model["data[0].selectedpoints"] = isempty(ii) ? nothing : ii
 
       notify(model, js"data")
+  end
+
+  on(model.isready) do ready
+    ready || return
+    @async begin
+      sleep(1)
+      run(model, watchplots(:OscarStatsOscarsOscar))
+    end
   end
 
   model
