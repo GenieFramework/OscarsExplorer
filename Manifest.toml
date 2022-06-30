@@ -523,7 +523,7 @@ uuid = "10745b16-79ce-11e8-11f9-7d13ad32a3b2"
 
 [[deps.Stipple]]
 deps = ["FilePathsBase", "Genie", "GenieSession", "GenieSessionFileSession", "JSON3", "Logging", "Mixers", "Observables", "OrderedCollections", "Parameters", "Pkg", "Random", "Reexport", "Requires", "StructTypes"]
-git-tree-sha1 = "55b85269c1268160f6a8840f972149079cd48f67"
+git-tree-sha1 = "8b420d830c43fe5e4f0c8149cdd15e530b102782"
 repo-rev = "Geniev5"
 repo-url = "https://github.com/GenieFramework/Stipple.jl.git"
 uuid = "4acbeb90-81a0-11ea-1966-bdaff8155998"

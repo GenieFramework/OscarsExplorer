@@ -9,14 +9,14 @@
         <div class="row">
             <div class="col col-12">
                 <h6>Min number of Oscars</h6>
-                <q-slider :min="$(Oscars.oscars_range.start)" :max="$(Oscars.oscars_range.stop)" v-model="filter_oscars" marker-labels="marker-labels" markers="markers" label="label" label-always="label-always">
+                <q-slider :min="$(Oscars.oscars_range.start)" :max="$(Oscars.oscars_range.stop)" v-model="filter_oscars" marker-labels="marker-labels" markers="markers" label="label" label-always="label-always" snap>
                 </q-slider>
             </div>
         </div>
         <div class="row">
             <div class="col col-12">
                 <h6>Year released</h6>
-                <q-range :min="$(Oscars.years_range.start)" :max="$(Oscars.years_range.stop)" :step="5" v-model="filter_years" marker-labels="" markers="" label="" label-always="" snap="" label-color="" label-text-color=""></q-range>
+                <q-range :min="$(Oscars.years_range.start)" :max="$(Oscars.years_range.stop)" :step="5" v-model="filter_years" marker-labels="" markers="" label="" label-always="" snap="" label-color="" label-text-color="" color=""></q-range>
             </div>
         </div>
         <div class="row">
