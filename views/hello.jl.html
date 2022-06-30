@@ -1,10 +1,10 @@
 <header class="st-header q-pa-sm">
     <h1 class="st-header__title text-h3">Oscars Explorer<br /></h1>
 </header>
-<div class="row" v-if="isready">
+<div v-if="isready" class="row">
     <div class="col-3 g-gutter-md">
         <div class="row">
-            <h2>Filters</h2>
+            <h2>Filters<br /></h2>
         </div>
         <div class="row">
             <div class="col col-12">
@@ -16,7 +16,7 @@
         <div class="row">
             <div class="col col-12">
                 <h6>Year released</h6>
-                <q-range :min="$(Oscars.years_range.start)" :max="$(Oscars.years_range.stop)" :step="5" v-model="filter_years" marker-labels="" markers="" label="" label-always=""></q-range>
+                <q-range :min="$(Oscars.years_range.start)" :max="$(Oscars.years_range.stop)" :step="5" v-model="filter_years" marker-labels="" markers="" label="" label-always="" snap="" label-color="" label-text-color=""></q-range>
             </div>
         </div>
         <div class="row">
@@ -43,8 +43,8 @@
     <div class="col-9 col">
         <div class="row">
             <div class="col col-9 st-module">
-                <plotly class="movies_plot sync_data" :data="data" :layout="layout" :config="{  }"></plotly>
-                <q-table flat="" :columns="movies.columns_movies" selection = "multiple" :selected.sync="movies_selection" :data="movies.data_movies" dense="" row-key="__id" :pagination="movies_pagination" class="movies_table"></q-table>
+                <plotly :data="data" :layout="layout" :config="{  }" class="movies_plot sync_data"></plotly>
+                <q-table flat="" :columns="movies.columns_movies" selection="multiple" :selected.sync="movies_selection" :data="movies.data_movies" dense="" row-key="__id" :pagination="movies_pagination" class="movies_table"></q-table>
             </div>
             <div class="col col-3 padded">
                 <div class="row">

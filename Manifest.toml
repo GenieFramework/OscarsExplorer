@@ -154,11 +154,11 @@ version = "6.2.1+2"
 
 [[deps.Genie]]
 deps = ["ArgParse", "Dates", "Distributed", "EzXML", "FilePathsBase", "HTTP", "HttpCommon", "Inflector", "JSON3", "JuliaFormatter", "Logging", "LoggingExtras", "Markdown", "Millboard", "Nettle", "OrderedCollections", "Pkg", "REPL", "Random", "Reexport", "Revise", "SHA", "Serialization", "Sockets", "UUIDs", "Unicode", "YAML"]
-git-tree-sha1 = "a9d33069c284c4b6d4ce750cf81fba660fd75c1b"
+git-tree-sha1 = "690de6edbad1d9e2dce8cfe9e5d8562d70d14788"
 repo-rev = "v5"
 repo-url = "https://github.com/GenieFramework/Genie.jl.git"
 uuid = "c43c736e-a2d1-11e8-161f-af95117fbd1e"
-version = "5.2.1"
+version = "5.3.0"
 
 [[deps.GenieAutoReload]]
 deps = ["Distributed", "Genie", "Logging", "Revise"]
@@ -170,11 +170,11 @@ version = "2.0.0"
 
 [[deps.GenieDevTools]]
 deps = ["Dates", "Genie", "GenieSession", "GenieSessionFileSession", "RemoteREPL", "Revise", "Stipple"]
-git-tree-sha1 = "bc76c7b285febbbf13a3a4e290def19afe3911b4"
+git-tree-sha1 = "3d26302f6f1952267e282d895acf68289b43cf9c"
 repo-rev = "main"
 repo-url = "https://github.com/GenieFramework/GenieDevTools.jl"
 uuid = "4e5d9629-6565-4102-a9ff-45c707eb060e"
-version = "0.1.5"
+version = "0.2.0"
 
 [[deps.GenieSession]]
 deps = ["Dates", "Genie", "HTTP", "Logging", "Random", "SHA"]

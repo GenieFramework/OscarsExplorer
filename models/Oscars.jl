@@ -102,6 +102,7 @@ function handlers(model::Oscar)
   @info "reloading handlers ..."
   hh = model
   onany(model.filter_oscars, model.filter_years, model.filter_country, model.filter_genre, model.filter_director, model.filter_cast, model.isready) do fo, fy, fc, fg, fd, fca, i
+    model.isprocessing[] = true
     model.movies[] = DataTable(String[
       "`Oscars` >= '$(fo)'",
       "`Year` between '$(fy.range.start)' and '$(fy.range.stop)'",
@@ -110,6 +111,7 @@ function handlers(model::Oscar)
       "`Director` like '%$(fd)%'",
       "`Cast` like '%$(fca)%'"
     ] |> validvalue |> oscars, table_options)
+    model.isprocessing[] = false
   end
 
   on(model.data_selected) do data

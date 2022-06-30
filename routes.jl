@@ -12,3 +12,7 @@ Page("/", view = "views/hello.jl.html",
           layout = "layouts/app.jl.html",
           model = () -> Oscar |> init_from_storage |> Oscars.handlers,
           context = @__MODULE__)
+
+route("err") do
+  throw("moo")
+end
