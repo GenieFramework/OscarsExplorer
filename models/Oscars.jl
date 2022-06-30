@@ -9,6 +9,8 @@ using DataFrames
 const ALL = "All"
 const db = SQLite.DB(joinpath("data", "oscars.db"))
 
+register_mixin(@__MODULE__)
+
 # construct a range between the minimum and maximum number of oscars
 const oscars_range = begin
   result = DBInterface.execute(db, "select min(Oscars) as min_oscars, max(Oscars) as max_oscars from movies") |> DataFrame
@@ -88,12 +90,19 @@ export Oscar
   cast::Vector{<:String} = movie_data("Cast")
   movies::R{DataTable} = DataTable(oscars(), table_options)
   movies_pagination::DataTablePagination = DataTablePagination(rows_per_page=50)
+  movies_selection::R{DataTableSelection} = DataTableSelection()
   selected_movie::R{Dict} = selected_movie()
   data::R{Vector{PlotData}} = [plot_data()]
   layout::R{PlotLayout} = PlotLayout(plot_bgcolor = "#fff")
+  @mixin data::PlotlyEvents
 end
 
+Stipple.js_mounted(::Oscar) = watchplots("#OscarStatsOscarsOscar", subtree = true)
+
 function handlers(model::Oscar)
+  global hh
+  @info "reloading handlers ..."
+  hh = model
   onany(model.filter_oscars, model.filter_years, model.filter_country, model.filter_genre, model.filter_director, model.filter_cast, model.isready) do fo, fy, fc, fg, fd, fca, i
     model.movies[] = DataTable(String[
       "`Oscars` >= '$(fo)'",
@@ -103,6 +112,17 @@ function handlers(model::Oscar)
       "`Director` like '%$(fd)%'",
       "`Cast` like '%$(fca)%'"
     ] |> validvalue |> oscars, table_options)
+  end
+
+  on(model.data_selected) do data
+    selectrows!(model, :movies, getindex.(data["points"], "pointIndex") .+ 1)
+  end
+
+  on(model.movies_selection) do selection
+      ii = getindex.(selection, "__id") .- 1
+      model["data[0].selectedpoints"] = isempty(ii) ? nothing : ii
+
+      notify(model, js"data")
   end
 
   model
