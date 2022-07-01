@@ -75,6 +75,35 @@ function plot_data()
           )
 end
 
+function plot_data(df)
+  df
+  [
+    PlotData(
+      x = df.Runtime,
+      y = df.Oscars,
+      name = "number of Oscars",
+      text = string.(df.Title, "(", df.Year, ")"),
+      mode = "markers",
+      plot = StipplePlotly.Charts.PLOT_TYPE_SCATTER,
+    ),
+    PlotData(
+      x = df.Runtime,
+      y = (x->length(findall(',', x))).(df.Cast),
+      name = "number of casts",
+      text = string.(df.Title, " (", df.Year, ")"),
+      mode = "markers",
+      plot = StipplePlotly.Charts.PLOT_TYPE_SCATTER
+    )
+  ]
+end
+
+function plot_layout(xtitle, ytitle)
+  PlotLayout(
+    xaxis = [PlotLayoutAxis(title = xtitle)],
+    yaxis = [PlotLayoutAxis(xy = "y", title = ytitle)]
+  )
+end
+
 export Oscar
 
 @reactive mutable struct Oscar <: ReactiveModel
@@ -97,6 +126,8 @@ export Oscar
   @mixin data::PlotlyEvents
 end
 
+Stipple.js_mounted(::Oscar) = watchplots()
+
 function handlers(model::Oscar)
   global hh
   @info "reloading handlers ..."
@@ -111,6 +142,8 @@ function handlers(model::Oscar)
       "`Director` like '%$(fd)%'",
       "`Cast` like '%$(fca)%'"
     ] |> validvalue |> oscars, table_options)
+    model.data[] = plot_data(model.movies.data)
+    model.layout[] = plot_layout("Runtime [min]", "Number")
     model.isprocessing[] = false
   end
 
@@ -119,9 +152,10 @@ function handlers(model::Oscar)
   end
 
   on(model.movies_selection) do selection
-      ii = getindex.(selection, "__id") .- 1
-      model["data[0].selectedpoints"] = isempty(ii) ? nothing : ii
-
+      ii = union(getindex.(selection, "__id")) .- 1
+      for n in 1:length(model.data[])
+        model["data[$n-1].selectedpoints"] = isempty(ii) ? nothing : ii
+      end
       notify(model, js"data")
   end
 

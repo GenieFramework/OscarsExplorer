@@ -43,7 +43,7 @@
     <div class="col-9 col">
         <div class="row">
             <div class="col col-9 st-module">
-                <plotly :data="data" :layout="layout" :config="{  }" class="movies_plot sync_data"></plotly>
+                <plotly :data="data" :layout="layout" :scrollZoom = "true" class="movies_plot sync_data"></plotly>
                 <q-table flat="" :columns="movies.columns_movies" selection="multiple" :selected.sync="movies_selection" :data="movies.data_movies" dense="" row-key="__id" :pagination="movies_pagination" class="movies_table"></q-table>
             </div>
             <div class="col col-3 padded">
