@@ -76,13 +76,12 @@ function plot_data()
 end
 
 function plot_data(df)
-  df
   [
     PlotData(
       x = df.Runtime,
       y = df.Oscars,
       name = "number of Oscars",
-      text = string.(df.Title, "(", df.Year, ")"),
+      text = string.(df.Title, " (", df.Year, ")"),
       mode = "markers",
       plot = StipplePlotly.Charts.PLOT_TYPE_SCATTER,
     ),
@@ -153,8 +152,8 @@ function handlers(model::Oscar)
 
   on(model.data_hover) do data
     isempty(data) && return
-    n = data["points"][1]["pointIndex"]
-    model.selected_movie[] = model.selected_movie[] = rowselection(model.movies[], n)[1]
+    n = data["points"][1]["pointIndex"] + 1
+    model.selected_movie[] = rowselection(model.movies[], n)[1]
   end
 
   on(model.movies_selection) do selection
