@@ -10,7 +10,7 @@ using OscarStats.Oscars
 
 Page("/", view = "views/hello.jl.html",
           layout = "layouts/app.jl.html",
-          model = () -> Oscar |> Stipple.init |> Oscars.handlers,
+          model = () -> Stipple.init(Oscar, debounce = 30) |> Oscars.handlers,
           context = @__MODULE__)
 
 route("err") do

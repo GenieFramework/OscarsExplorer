@@ -151,6 +151,12 @@ function handlers(model::Oscar)
     selectrows!(model, :movies, getindex.(data["points"], "pointIndex") .+ 1)
   end
 
+  on(model.data_hover) do data
+    isempty(data) && return
+    n = data["points"][1]["pointIndex"]
+    model.selected_movie[] = model.selected_movie[] = rowselection(model.movies[], n)[1]
+  end
+
   on(model.movies_selection) do selection
       ii = union(getindex.(selection, "__id")) .- 1
       for n in 1:length(model.data[])
