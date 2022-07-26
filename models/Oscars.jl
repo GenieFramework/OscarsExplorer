@@ -128,9 +128,8 @@ end
 Stipple.js_mounted(::Oscar) = watchplots()
 
 function handlers(model::Oscar)
-  global hh
   @info "reloading handlers ..."
-  hh = model
+
   onany(model.filter_oscars, model.filter_years, model.filter_country, model.filter_genre, model.filter_director, model.filter_cast, model.isready) do fo, fy, fc, fg, fd, fca, i
     model.isprocessing[] = true
     model.movies[] = DataTable(String[
@@ -163,16 +162,6 @@ function handlers(model::Oscar)
       end
       notify(model, js"data")
   end
-
-  #=
-  on(model.isready) do ready
-    ready || return
-    @async begin
-      sleep(1)
-      run(model, watchplots(:OscarStatsOscarsOscar))
-    end
-  end
-  =#
 
   model
 end
