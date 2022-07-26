@@ -164,6 +164,7 @@ function handlers(model::Oscar)
       notify(model, js"data")
   end
 
+  #=
   on(model.isready) do ready
     ready || return
     @async begin
@@ -171,6 +172,7 @@ function handlers(model::Oscar)
       run(model, watchplots(:OscarStatsOscarsOscar))
     end
   end
+  =#
 
   model
 end

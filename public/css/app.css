@@ -12,3 +12,7 @@
 .movies_plot {
   height: 600px;
 }
+
+.stipple-core .q-slider__track-container {
+  background-color: transparent !important;
+}
