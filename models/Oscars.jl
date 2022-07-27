@@ -128,6 +128,11 @@ end
 Stipple.js_mounted(::Oscar) = watchplots()
 
 function handlers(model::Oscar)
+<<<<<<< HEAD
+=======
+  @info "reloading handlers ..."
+
+>>>>>>> 567aed6a671d66d9c6d6dc087afc400ddcdf7ba9
   onany(model.filter_oscars, model.filter_years, model.filter_country, model.filter_genre, model.filter_director, model.filter_cast, model.isready) do fo, fy, fc, fg, fd, fca, i
     model.isprocessing[] = true
     model.movies[] = DataTable(String[
