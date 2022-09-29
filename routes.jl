@@ -6,7 +6,7 @@ using StipplePlotly
 using Stipple.Pages
 using Stipple.ModelStorage.Sessions
 
-using OscarStats.Oscars
+using OscarsExplorer.Oscars
 
 if Genie.Configuration.isprod()
   Genie.Assets.assets_config!([Genie, Stipple, StippleUI, StipplePlotly], host = "https://cdn.statically.io/gh/GenieFramework")

@@ -9,7 +9,7 @@ using DataFrames
 const ALL = "All"
 const db = SQLite.DB(joinpath("data", "oscars.db"))
 
-register_mixin(@__MODULE__)
+# register_mixin(@__MODULE__)
 
 # construct a range between the minimum and maximum number of oscars
 const oscars_range = begin
