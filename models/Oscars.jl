@@ -9,8 +9,6 @@ using DataFrames
 const ALL = "All"
 const db = SQLite.DB(joinpath("data", "oscars.db"))
 
-register_mixin(@__MODULE__)
-
 # construct a range between the minimum and maximum number of oscars
 const oscars_range = begin
   result = DBInterface.execute(db, "select min(Oscars) as min_oscars, max(Oscars) as max_oscars from movies") |> DataFrame

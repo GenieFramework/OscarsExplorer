@@ -1,6 +1,6 @@
 # This file is machine-generated - editing it directly is not advised
 
-julia_version = "1.8.0-rc1"
+julia_version = "1.8.1"
 manifest_format = "2.0"
 project_hash = "2409c08573b9afdb1382ee6d0f06ce3eaf5085b6"
 
@@ -20,11 +20,10 @@ uuid = "56f22d72-fd6d-98f1-02f0-08ddc0907c33"
 [[deps.Base64]]
 uuid = "2a0f44e3-6c83-55bd-87e4-b1978d98bd5f"
 
-[[deps.BinaryProvider]]
-deps = ["Libdl", "Logging", "SHA"]
-git-tree-sha1 = "ecdec412a9abc8db54c0efc5548c64dfce072058"
-uuid = "b99e7846-7c00-51b0-8f62-c81ae34c0232"
-version = "0.5.10"
+[[deps.BitFlags]]
+git-tree-sha1 = "84259bb6172806304b9101094a7cc4bc6f56dbc6"
+uuid = "d1d4a3ce-64b1-5f1a-9ba4-7e7e69966f35"
+version = "0.1.5"
 
 [[deps.CSTParser]]
 deps = ["Tokenize"]
@@ -34,9 +33,15 @@ version = "3.3.6"
 
 [[deps.CodeTracking]]
 deps = ["InteractiveUtils", "UUIDs"]
-git-tree-sha1 = "6d4fa04343a7fc9f9cb9cff9558929f3d2752717"
+git-tree-sha1 = "1833bda4a027f4b2a1c984baddcf755d77266818"
 uuid = "da1fd8a2-8d9e-5ec2-8556-3022fb5608a2"
-version = "1.0.9"
+version = "1.1.0"
+
+[[deps.CodecZlib]]
+deps = ["TranscodingStreams", "Zlib_jll"]
+git-tree-sha1 = "ded953804d019afa9a3f98981d99b33e3db7b6da"
+uuid = "944b1d66-785c-5afd-91f1-9de20f533193"
+version = "0.7.0"
 
 [[deps.ColorTypes]]
 deps = ["FixedPointNumbers", "Random"]
@@ -57,10 +62,10 @@ uuid = "a80b9123-70ca-4bc0-993e-6e3bcb318db6"
 version = "0.8.6"
 
 [[deps.Compat]]
-deps = ["Base64", "Dates", "DelimitedFiles", "Distributed", "InteractiveUtils", "LibGit2", "Libdl", "LinearAlgebra", "Markdown", "Mmap", "Pkg", "Printf", "REPL", "Random", "SHA", "Serialization", "SharedArrays", "Sockets", "SparseArrays", "Statistics", "Test", "UUIDs", "Unicode"]
-git-tree-sha1 = "9be8be1d8a6f44b96482c8af52238ea7987da3e3"
+deps = ["Dates", "LinearAlgebra", "UUIDs"]
+git-tree-sha1 = "5856d3031cdb1f3b2b6340dfdc66b6d9a149a374"
 uuid = "34da2185-b29b-5c13-b0c7-acf172513d20"
-version = "3.45.0"
+version = "4.2.0"
 
 [[deps.CompilerSupportLibraries_jll]]
 deps = ["Artifacts", "Libdl"]
@@ -78,15 +83,15 @@ uuid = "a10d1c49-ce27-4219-8d33-6db1a4562965"
 version = "2.5.0"
 
 [[deps.DataAPI]]
-git-tree-sha1 = "fb5f5316dd3fd4c5e7c30a24d50643b73e37cd40"
+git-tree-sha1 = "1106fa7e1256b402a86a8e7b15c00c85036fef49"
 uuid = "9a962f9c-6df0-11e9-0e5d-c546b8b5ee8a"
-version = "1.10.0"
+version = "1.11.0"
 
 [[deps.DataFrames]]
 deps = ["Compat", "DataAPI", "Future", "InvertedIndices", "IteratorInterfaceExtensions", "LinearAlgebra", "Markdown", "Missings", "PooledArrays", "PrettyTables", "Printf", "REPL", "Reexport", "SortingAlgorithms", "Statistics", "TableTraits", "Tables", "Unicode"]
-git-tree-sha1 = "daa21eb85147f72e41f6352a57fccea377e310a9"
+git-tree-sha1 = "db2a9cb664fcea7836da4b414c3278d71dd602d2"
 uuid = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
-version = "1.3.4"
+version = "1.3.6"
 
 [[deps.DataStructures]]
 deps = ["Compat", "InteractiveUtils", "OrderedCollections"]
@@ -102,10 +107,6 @@ version = "1.0.0"
 [[deps.Dates]]
 deps = ["Printf"]
 uuid = "ade2ca70-3891-5945-98fb-dc099432e06a"
-
-[[deps.DelimitedFiles]]
-deps = ["Mmap"]
-uuid = "8bb1440f-4735-579b-a4ab-409b98df4dab"
 
 [[deps.Distributed]]
 deps = ["Random", "Serialization", "Sockets"]
@@ -124,9 +125,9 @@ version = "1.1.0"
 
 [[deps.FilePathsBase]]
 deps = ["Compat", "Dates", "Mmap", "Printf", "Test", "UUIDs"]
-git-tree-sha1 = "129b104185df66e408edd6625d480b7f9e9823a0"
+git-tree-sha1 = "e27c4ebe80e8699540f2d6c805cc12203b614f12"
 uuid = "48062228-2e41-5def-b9a4-89aafe57970f"
-version = "0.9.18"
+version = "0.9.20"
 
 [[deps.FileWatching]]
 uuid = "7b1f6079-737a-58dc-b8bc-7a2ca5c1b5ee"
@@ -154,59 +155,51 @@ version = "6.2.1+2"
 
 [[deps.Genie]]
 deps = ["ArgParse", "Dates", "Distributed", "EzXML", "FilePathsBase", "HTTP", "HttpCommon", "Inflector", "JSON3", "JuliaFormatter", "Logging", "LoggingExtras", "Markdown", "Millboard", "Nettle", "OrderedCollections", "Pkg", "REPL", "Random", "Reexport", "Revise", "SHA", "Serialization", "Sockets", "UUIDs", "Unicode", "YAML"]
-git-tree-sha1 = "7501281fe2c1d1805ca78227db95851c3f76318a"
+git-tree-sha1 = "65193d5e54b8a7fd2aa0b4831bdd0a9d13a5b397"
 uuid = "c43c736e-a2d1-11e8-161f-af95117fbd1e"
-version = "5.0.0"
+version = "5.6.2"
 
 [[deps.GenieAutoReload]]
 deps = ["Distributed", "Genie", "Logging", "Revise"]
-git-tree-sha1 = "ebe87240a01fda5dc0a4537531c7e826946e2382"
+git-tree-sha1 = "da2981cb1e62ff23cff310e1637379439cd60f18"
 uuid = "c6228e60-a24f-11e9-1776-c313472ebacc"
-version = "2.0.0"
+version = "2.0.1"
 
 [[deps.GenieDeploy]]
 deps = ["Genie"]
-git-tree-sha1 = "8445fabb114e5019018eab04b1f2cf1af6cb7046"
-repo-rev = "main"
-repo-url = "https://github.com/GenieFramework/GenieDeploy.jl"
+git-tree-sha1 = "26e8c6c7850a28699715c4c553fc61a73a452cb1"
 uuid = "d108a3e0-159a-438b-bbd8-7bf1a8b5a5d1"
-version = "1.0.0"
+version = "1.0.1"
 
 [[deps.GenieDeployDocker]]
 deps = ["Genie", "GenieDeploy"]
-git-tree-sha1 = "6a9389bedeb74b68acd03dc0d2114f92e84307d5"
-repo-rev = "main"
-repo-url = "https://github.com/GenieFramework/GenieDeployDocker.jl"
+git-tree-sha1 = "0626516bbbf43599093ee21cf9ea8e510e57fb41"
 uuid = "a082159f-dd50-4f6d-a3c5-00c38fd36577"
-version = "0.3.1"
+version = "1.0.1"
 
 [[deps.GenieDevTools]]
-deps = ["Dates", "Genie", "GenieSession", "GenieSessionFileSession", "RemoteREPL", "Revise", "Stipple"]
-git-tree-sha1 = "b015d5a5b949d5e40d27dbee06942d1328c307f3"
-repo-rev = "main"
-repo-url = "https://github.com/GenieFramework/GenieDevTools.jl"
+deps = ["Dates", "Genie", "RemoteREPL", "Revise", "Stipple"]
+git-tree-sha1 = "f526cb80b10aa88bf3a6011a069dfa8f2fb6d5d4"
 uuid = "4e5d9629-6565-4102-a9ff-45c707eb060e"
 version = "1.0.0"
 
 [[deps.GenieSession]]
 deps = ["Dates", "Genie", "HTTP", "Logging", "Random", "SHA"]
-git-tree-sha1 = "8bb7342aeb09eede25c230be0bc4aca3bc5b308d"
+git-tree-sha1 = "936838b4eccdd5a2b62b695558d5dbc1f5f56560"
 uuid = "03cc5b98-4f21-4eb6-99f2-22eced81f962"
-version = "1.0.0"
+version = "1.1.2"
 
 [[deps.GenieSessionFileSession]]
 deps = ["Genie", "GenieSession", "Logging", "Serialization"]
-git-tree-sha1 = "8d99ed847d0fe9c5146ae7bdd0dbdeea43f1622f"
-repo-rev = "main"
-repo-url = "https://github.com/GenieFramework/GenieSessionFileSession.jl"
+git-tree-sha1 = "5f5ffc33251d0d5f110072f7a0c07717c9453c97"
 uuid = "5c4fdc26-39e3-47cf-9034-e533e09961c2"
-version = "1.0.0"
+version = "1.1.0"
 
 [[deps.HTTP]]
-deps = ["Base64", "Dates", "IniFile", "Logging", "MbedTLS", "NetworkOptions", "Sockets", "URIs"]
-git-tree-sha1 = "0fa77022fe4b511826b39c894c90daf5fce3334a"
+deps = ["Base64", "CodecZlib", "Dates", "IniFile", "Logging", "LoggingExtras", "MbedTLS", "NetworkOptions", "OpenSSL", "Random", "SimpleBufferStream", "Sockets", "URIs", "UUIDs"]
+git-tree-sha1 = "4abede886fcba15cd5fd041fef776b230d004cee"
 uuid = "cd3eb016-35fb-5094-929b-558a96fad6f3"
-version = "0.9.17"
+version = "1.4.0"
 
 [[deps.HttpCommon]]
 deps = ["Dates", "Nullables", "Test", "URIParser"]
@@ -259,21 +252,21 @@ version = "0.21.3"
 
 [[deps.JSON3]]
 deps = ["Dates", "Mmap", "Parsers", "StructTypes", "UUIDs"]
-git-tree-sha1 = "fd6f0cae36f42525567108a42c1c674af2ac620d"
+git-tree-sha1 = "f1572de22c866dc92aea032bc89c2b137cbddd6a"
 uuid = "0f8b85d8-7281-11e9-16c2-39a750bddbf1"
-version = "1.9.5"
+version = "1.10.0"
 
 [[deps.JuliaFormatter]]
 deps = ["CSTParser", "CommonMark", "DataStructures", "Pkg", "Tokenize"]
-git-tree-sha1 = "6f13ba89febc5c12f882902e1f5dcd11a8913fa5"
+git-tree-sha1 = "1ec2cb3b87d0c38e3b01c76d9b11639f1eaeec96"
 uuid = "98e50ef6-434e-11e9-1051-2b60c6c9e899"
-version = "1.0.7"
+version = "1.0.10"
 
 [[deps.JuliaInterpreter]]
 deps = ["CodeTracking", "InteractiveUtils", "Random", "UUIDs"]
-git-tree-sha1 = "1101d9e5a062963612e8d2bd5bd653d73ae033f4"
+git-tree-sha1 = "0f960b1404abb0b244c1ece579a0ec78d056a5d1"
 uuid = "aa1ae85d-cabe-5617-a682-6adf51b2e16a"
-version = "0.9.14"
+version = "0.9.15"
 
 [[deps.LazyArtifacts]]
 deps = ["Artifacts", "Pkg"]
@@ -287,7 +280,7 @@ version = "0.6.3"
 [[deps.LibCURL_jll]]
 deps = ["Artifacts", "LibSSH2_jll", "Libdl", "MbedTLS_jll", "Zlib_jll", "nghttp2_jll"]
 uuid = "deac9b47-8bc7-5906-a0fe-35ac56dc84c0"
-version = "7.81.0+0"
+version = "7.84.0+0"
 
 [[deps.LibGit2]]
 deps = ["Base64", "NetworkOptions", "Printf", "SHA"]
@@ -338,9 +331,9 @@ uuid = "d6f4376e-aef5-505a-96c1-9c027394607a"
 
 [[deps.MbedTLS]]
 deps = ["Dates", "MbedTLS_jll", "MozillaCACerts_jll", "Random", "Sockets"]
-git-tree-sha1 = "9f4f5a42de3300439cb8300236925670f844a555"
+git-tree-sha1 = "6872f9594ff273da6d13c7c1a1545d5a8c7d0c1c"
 uuid = "739be429-bea8-5141-9913-cc70e7f3736d"
-version = "1.1.1"
+version = "1.1.6"
 
 [[deps.MbedTLS_jll]]
 deps = ["Artifacts", "Libdl"]
@@ -408,6 +401,12 @@ git-tree-sha1 = "1b2f042897343a9dfdcc9366e4ecbd3d00780c49"
 uuid = "9bd350c2-7e96-507f-8002-3f2e150b4e1b"
 version = "8.9.0+1"
 
+[[deps.OpenSSL]]
+deps = ["BitFlags", "Dates", "MozillaCACerts_jll", "OpenSSL_jll", "Sockets"]
+git-tree-sha1 = "02be9f845cb58c2d6029a6d5f67f4e0af3237814"
+uuid = "4d8831e6-92b7-49fb-bdf8-b643e874388c"
+version = "1.1.3"
+
 [[deps.OpenSSL_jll]]
 deps = ["Artifacts", "JLLWrappers", "Libdl", "Pkg"]
 git-tree-sha1 = "e60321e3f2616584ff98f0a4f18d98ae6f89bbb3"
@@ -421,9 +420,9 @@ version = "1.4.1"
 
 [[deps.PackageCompiler]]
 deps = ["Artifacts", "LazyArtifacts", "Libdl", "Pkg", "Printf", "RelocatableFolders", "TOML", "UUIDs"]
-git-tree-sha1 = "52ab501c2201e140954924365ef06a36ba1d97ed"
+git-tree-sha1 = "c497e2bb9c2127a411b74dbff56b11f258d67d12"
 uuid = "9b87118b-4619-50d2-8e1e-99f35a4d4d9d"
-version = "2.0.7"
+version = "2.0.9"
 
 [[deps.Parameters]]
 deps = ["OrderedCollections", "UnPack"]
@@ -433,9 +432,9 @@ version = "0.12.3"
 
 [[deps.Parsers]]
 deps = ["Dates"]
-git-tree-sha1 = "0044b23da09b5608b4ecacb4e5e6c6332f833a7e"
+git-tree-sha1 = "3d5bf43e3e8b412656404ed9466f1dcbf7c50269"
 uuid = "69de0a69-1ddd-5017-9359-2bf0b02dc9f0"
-version = "2.3.2"
+version = "2.4.0"
 
 [[deps.Pkg]]
 deps = ["Artifacts", "Dates", "Downloads", "LibGit2", "Libdl", "Logging", "Markdown", "Printf", "REPL", "Random", "SHA", "Serialization", "TOML", "Tar", "UUIDs", "p7zip_jll"]
@@ -503,25 +502,25 @@ version = "1.3.0"
 
 [[deps.Revise]]
 deps = ["CodeTracking", "Distributed", "FileWatching", "JuliaInterpreter", "LibGit2", "LoweredCodeUtils", "OrderedCollections", "Pkg", "REPL", "Requires", "UUIDs", "Unicode"]
-git-tree-sha1 = "c73149ff75d4efb19b6d77411d293ae8fb55c58e"
+git-tree-sha1 = "dad726963ecea2d8a81e26286f625aee09a91b7c"
 uuid = "295af30f-e4ad-537b-8983-00126c2a3abe"
-version = "3.3.4"
+version = "3.4.0"
 
 [[deps.SHA]]
 uuid = "ea8e919c-243c-51af-8825-aaa63cd721ce"
 version = "0.7.0"
 
 [[deps.SQLite]]
-deps = ["BinaryProvider", "DBInterface", "Dates", "Libdl", "Random", "SQLite_jll", "Serialization", "Tables", "Test", "WeakRefStrings"]
-git-tree-sha1 = "c19088908cde014f8807e6dc57b90cb5b5c90565"
+deps = ["DBInterface", "Dates", "Libdl", "Random", "SQLite_jll", "Serialization", "Tables", "Test", "WeakRefStrings"]
+git-tree-sha1 = "93863dea19851aa45d67d70e638e16666f33731e"
 uuid = "0aa819cd-b072-5ff4-a722-6bc24af294d9"
-version = "1.4.1"
+version = "1.4.2"
 
 [[deps.SQLite_jll]]
 deps = ["Artifacts", "JLLWrappers", "Libdl", "Pkg", "Zlib_jll"]
-git-tree-sha1 = "f2129f53b7c2ce4fe350e46d35b9772966a12ac0"
+git-tree-sha1 = "e7c1d14d4c93e2d0f85970f818052de200eba5d2"
 uuid = "76ed43ae-9a5d-5a62-8c75-30186b810ce8"
-version = "3.39.0+0"
+version = "3.39.2+0"
 
 [[deps.Scratch]]
 deps = ["Dates"]
@@ -532,9 +531,10 @@ version = "1.1.1"
 [[deps.Serialization]]
 uuid = "9e88b42a-f829-5b0c-bbe9-9e923198166b"
 
-[[deps.SharedArrays]]
-deps = ["Distributed", "Mmap", "Random", "Serialization"]
-uuid = "1a1011a3-84de-559e-8e89-a11a2f7dc383"
+[[deps.SimpleBufferStream]]
+git-tree-sha1 = "874e8867b33a00e784c8a7e4b60afe9e037b74e1"
+uuid = "777ac1f9-54b0-4bf8-805c-2214025038e7"
+version = "1.1.0"
 
 [[deps.Sockets]]
 uuid = "6462fe0b-24de-5631-8697-dd941f90decc"
@@ -554,28 +554,22 @@ deps = ["LinearAlgebra", "SparseArrays"]
 uuid = "10745b16-79ce-11e8-11f9-7d13ad32a3b2"
 
 [[deps.Stipple]]
-deps = ["FilePathsBase", "Genie", "GenieSession", "GenieSessionFileSession", "JSON3", "Logging", "Mixers", "Observables", "OrderedCollections", "Parameters", "Pkg", "Random", "Reexport", "Requires", "StructTypes"]
-git-tree-sha1 = "f5ecdc6b1bddbef451e372d396be906e39b1b434"
-repo-rev = "Geniev5"
-repo-url = "https://github.com/GenieFramework/Stipple.jl.git"
+deps = ["FilePathsBase", "Genie", "GenieSession", "GenieSessionFileSession", "JSON3", "Logging", "MacroTools", "Mixers", "Observables", "OrderedCollections", "Parameters", "Pkg", "Random", "Reexport", "Requires", "StructTypes"]
+git-tree-sha1 = "63f054f6cb768b5807e4b698d10909279d5e3208"
 uuid = "4acbeb90-81a0-11ea-1966-bdaff8155998"
-version = "0.25.0"
+version = "0.25.3"
 
 [[deps.StipplePlotly]]
-deps = ["Genie", "GenieSession", "GenieSessionFileSession", "Requires", "Stipple"]
-git-tree-sha1 = "4a1bba35039a8fff36f8ef582f576548d8871a87"
-repo-rev = "Geniev5"
-repo-url = "https://github.com/GenieFramework/StipplePlotly.jl.git"
+deps = ["DataFrames", "Genie", "Requires", "Stipple"]
+git-tree-sha1 = "01907c52d5534188ecdde07d59e9eb5f334705d3"
 uuid = "ec984513-233d-481d-95b0-a3b58b97af2b"
-version = "0.13.0"
+version = "0.13.2"
 
 [[deps.StippleUI]]
-deps = ["Colors", "DataFrames", "Dates", "Genie", "GenieSession", "GenieSessionFileSession", "Stipple"]
-git-tree-sha1 = "3a62e229075c132868b4d9b9adb186f6d91ac8fe"
-repo-rev = "Geniev5"
-repo-url = "https://github.com/GenieFramework/StippleUI.jl.git"
+deps = ["Colors", "DataFrames", "Dates", "Genie", "Stipple"]
+git-tree-sha1 = "8cb3feeec1897f04b26e42be54d8c84b87fbd610"
 uuid = "a3c5d34a-b254-4859-a8fa-b86abb7e84a3"
-version = "0.20.0"
+version = "0.20.2"
 
 [[deps.StringEncodings]]
 deps = ["Libiconv_jll"]
@@ -585,9 +579,9 @@ version = "0.3.5"
 
 [[deps.StructTypes]]
 deps = ["Dates", "UUIDs"]
-git-tree-sha1 = "d24a825a95a6d98c385001212dc9020d609f2d4f"
+git-tree-sha1 = "ca4bccb03acf9faaf4137a9abc1881ed1841aa70"
 uuid = "856f2bd8-1eba-4b0a-8007-ebc267875bd4"
-version = "1.8.1"
+version = "1.10.0"
 
 [[deps.TOML]]
 deps = ["Dates"]
@@ -602,9 +596,9 @@ version = "1.0.1"
 
 [[deps.Tables]]
 deps = ["DataAPI", "DataValueInterfaces", "IteratorInterfaceExtensions", "LinearAlgebra", "OrderedCollections", "TableTraits", "Test"]
-git-tree-sha1 = "5ce79ce186cc678bbb5c5681ca3379d1ddae11a1"
+git-tree-sha1 = "2d7164f7b8a066bcfa6224e67736ce0eb54aef5b"
 uuid = "bd369af6-aec1-5ad0-b16a-f7cc5008161c"
-version = "1.7.0"
+version = "1.9.0"
 
 [[deps.Tar]]
 deps = ["ArgTools", "SHA"]
@@ -624,6 +618,12 @@ version = "1.0.1"
 git-tree-sha1 = "2b3af135d85d7e70b863540160208fa612e736b9"
 uuid = "0796e94c-ce3b-5d07-9a54-7f471281c624"
 version = "0.5.24"
+
+[[deps.TranscodingStreams]]
+deps = ["Random", "Test"]
+git-tree-sha1 = "8a75929dcd3c38611db2f8d08546decb514fcadf"
+uuid = "3bb67fe8-82b1-5028-8e26-92a6c54297fa"
+version = "0.9.9"
 
 [[deps.URIParser]]
 deps = ["Unicode"]
@@ -674,12 +674,12 @@ version = "1.2.12+3"
 [[deps.libblastrampoline_jll]]
 deps = ["Artifacts", "Libdl", "OpenBLAS_jll"]
 uuid = "8e850b90-86db-534c-a0d3-1478176c7d93"
-version = "5.1.0+0"
+version = "5.1.1+0"
 
 [[deps.nghttp2_jll]]
 deps = ["Artifacts", "Libdl"]
 uuid = "8e850ede-7688-5339-a07c-302acd2aaf8d"
-version = "1.41.0+1"
+version = "1.48.0+0"
 
 [[deps.p7zip_jll]]
 deps = ["Artifacts", "Libdl"]

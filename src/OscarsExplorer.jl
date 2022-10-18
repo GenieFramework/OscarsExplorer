@@ -1,4 +1,4 @@
-module OscarStats
+module OscarsExplorer
 
 using Genie
 
